@@ -66,6 +66,7 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
+            "browserTarget": "spellen-paradijs:build:production",
             "routesFile": "dist/prerender-routes.json"
           }
         },
