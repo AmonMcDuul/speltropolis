@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "routes": "node scripts/prerender-routes.js > dist/prerender-routes.json",
+    "routes": "mkdir -p dist && node scripts/prerender-routes.js > dist/prerender-routes.json",
     "prerender": "npm run routes && ng build"
   },
   "prettier": {
