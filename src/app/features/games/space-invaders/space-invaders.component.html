@@ -1,0 +1,15 @@
+<app-game-container title="🚀 Space Invaders">
+  <div class="game">
+    <canvas #canvas></canvas>
+
+    <div class="mobile-controls">
+      <button (touchstart)="moveLeft(true)" (touchend)="moveLeft(false)">⬅</button>
+
+      <button (touchstart)="shoot()">🔫</button>
+
+      <button (touchstart)="moveRight(true)" (touchend)="moveRight(false)">➡</button>
+    </div>
+
+    <p class="controls">⬅ ➡ bewegen • Space = schieten • R = restart</p>
+  </div>
+</app-game-container>

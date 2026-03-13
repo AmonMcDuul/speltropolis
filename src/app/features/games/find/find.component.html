@@ -1,0 +1,26 @@
+<app-game-container title="🔎 Vind de afwijkende">
+  <div class="game">
+    <div class="topbar">
+      <div class="score">⭐ {{ score() }}</div>
+
+      <button class="new" (click)="selectRandomSetting()">Nieuw</button>
+      <button class="new" (click)="setGridSize(8); selectRandomSetting()">8</button>
+      <button class="new" (click)="setGridSize(12); selectRandomSetting()">12</button>
+      <button class="new big" (click)="setGridSize(16); selectRandomSetting()">16</button>
+    </div>
+
+    <div class="grid" [style.grid-template-columns]="gridColumns()">
+      @for (row of grid(); let r = $index; track r) {
+        @for (cell of row; let c = $index; track c) {
+          <button
+            class="cell"
+            [class.found]="found() && r === uniqueRow && c === uniqueCol"
+            (click)="selectCell(r, c)"
+          >
+            {{ cell }}
+          </button>
+        }
+      }
+    </div>
+  </div>
+</app-game-container>

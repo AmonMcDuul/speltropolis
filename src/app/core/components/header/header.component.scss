@@ -1,0 +1,29 @@
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #1f2937;
+  transition: transform 0.15s;
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.sparkles {
+  position: absolute;
+  right: 20px;
+  font-size: 22px;
+}

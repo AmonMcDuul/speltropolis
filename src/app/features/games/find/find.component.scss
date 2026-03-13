@@ -1,0 +1,142 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.score {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+  gap: 6px;
+
+  /* maximale breedte zodat grote grids passen */
+  max-width: min(90vw, 600px);
+  width: 100%;
+
+  justify-content: center;
+  max-width: min(90vw, 600px);
+}
+
+/* CELLS */
+
+.cell {
+  aspect-ratio: 1 / 1;
+
+  /* automatische schaal */
+  width: clamp(28px, 6vw, 48px);
+
+  font-size: clamp(16px, 3vw, 26px);
+
+  border: none;
+  background: #00fff2;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.15s;
+}
+
+.cell:hover {
+  transform: scale(1.08);
+  background: #81d4fa;
+}
+
+.cell.found {
+  background: #69db7c;
+}
+
+.new {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #4dabf7;
+  color: white;
+  cursor: pointer;
+}
+
+/* tablet landscape */
+
+@media (max-width: 900px) {
+  .grid {
+    gap: 5px;
+  }
+
+  .cell {
+    width: clamp(34px, 6vw, 42px);
+    font-size: clamp(18px, 3vw, 24px);
+  }
+}
+
+/* tablet portrait */
+
+@media (max-width: 720px) {
+  .big {
+    display: none;
+  }
+
+  .grid {
+    gap: 5px;
+  }
+
+  .cell {
+    width: clamp(28px, 7vw, 38px);
+    font-size: clamp(16px, 3.5vw, 22px);
+  }
+}
+
+/* grote telefoons */
+
+@media (max-width: 550px) {
+  .grid {
+    gap: 4px;
+  }
+
+  .cell {
+    width: clamp(24px, 8vw, 34px);
+    font-size: clamp(14px, 4vw, 20px);
+  }
+}
+
+/* standaard telefoon */
+
+@media (max-width: 420px) {
+  .grid {
+    gap: 3px;
+  }
+
+  .cell {
+    width: clamp(20px, 9vw, 28px);
+    font-size: clamp(12px, 4.5vw, 18px);
+  }
+}
+
+/* kleine telefoons */
+
+@media (max-width: 340px) {
+  .grid {
+    gap: 2px;
+  }
+
+  .cell {
+    width: clamp(14px, 10vw, 20px);
+    font-size: clamp(10px, 5vw, 14px);
+  }
+}

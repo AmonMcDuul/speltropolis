@@ -1,0 +1,73 @@
+<app-game-container title="🕒 Klok kijken">
+  <div class="game">
+    <div class="difficulty">
+      <button (click)="setDifficulty('hour')">Hele uren</button>
+      <button (click)="setDifficulty('half')">Halve uren</button>
+      <button (click)="setDifficulty('quarter')">Kwartieren</button>
+      <button (click)="setDifficulty('five')">5 minuten</button>
+    </div>
+
+    <div class="clock-wrapper">
+      <svg viewBox="0 0 200 200" class="clock">
+        <circle cx="100" cy="100" r="95" class="clock-face" />
+
+        <!-- minute ticks -->
+
+        @for (t of ticks; track t) {
+          <line
+            x1="100"
+            y1="8"
+            [attr.x2]="100"
+            [attr.y2]="t % 5 === 0 ? 18 : 14"
+            class="tick"
+            [attr.transform]="'rotate(' + t * 6 + ' 100 100)'"
+          />
+        }
+
+        <!-- numbers -->
+
+        @for (n of numbers; track n.value) {
+          <text class="number" [attr.x]="n.x" [attr.y]="n.y">
+            {{ n.value }}
+          </text>
+        }
+
+        <!-- hour hand -->
+
+        <line
+          class="hour"
+          x1="100"
+          y1="100"
+          x2="100"
+          y2="60"
+          [attr.transform]="'rotate(' + hourAngle() + ' 100 100)'"
+        />
+
+        <!-- minute hand -->
+
+        <line
+          class="minute"
+          x1="100"
+          y1="100"
+          x2="100"
+          y2="35"
+          [attr.transform]="'rotate(' + minuteAngle() + ' 100 100)'"
+        />
+
+        <circle cx="100" cy="100" r="4" class="center" />
+      </svg>
+
+      <div class="digital">
+        {{ formatDigital(current()) }}
+      </div>
+    </div>
+
+    <div class="answers">
+      @for (a of answers(); track a) {
+        <button (click)="answer(a)">
+          {{ a }}
+        </button>
+      }
+    </div>
+  </div>
+</app-game-container>

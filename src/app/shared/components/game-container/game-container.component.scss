@@ -1,0 +1,20 @@
+.game-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.game-content {
+  margin-top: 24px;
+}

@@ -1,0 +1,203 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* score */
+
+.topbar {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+}
+
+/* settings */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.operators {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  background: #f1f3f5;
+  cursor: pointer;
+}
+
+.toggle.active {
+  background: #4dabf7;
+  color: white;
+}
+
+.range {
+  display: flex;
+  gap: 20px;
+}
+
+.range-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #f1f3f5;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.range-control button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  background: white;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.range-control button:active {
+  transform: translateY(1px);
+}
+
+.value {
+  min-width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tables {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.table {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: #e9ecef;
+}
+
+.table.active {
+  background: #69db7c;
+}
+
+/* problem */
+
+.problem {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* answer */
+
+.answer-box {
+  width: 200px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+
+  background: #fff8db;
+
+  border-radius: 16px;
+
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* keypad */
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 12px;
+}
+
+.keypad button {
+  font-size: 24px;
+  padding: 16px;
+
+  border-radius: 16px;
+  border: none;
+
+  background: linear-gradient(#fff, #f1f3f5);
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+.delete {
+  grid-column: span 3;
+}
+
+/* submit en skip */
+.actions {
+  display: flex;
+  gap: 14px;
+}
+
+.skip {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 18px;
+
+  background: #dee2e6;
+
+  cursor: pointer;
+}
+
+.submit {
+  padding: 12px 26px;
+  font-size: 20px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #4dabf7;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* feedback */
+
+.feedback {
+  height: 36px;
+  font-size: 22px;
+}
+
+/* responsive */
+
+@media (max-width: 600px) {
+  .problem {
+    font-size: 36px;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, 70px);
+  }
+}

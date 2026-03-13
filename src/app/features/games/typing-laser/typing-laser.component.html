@@ -1,0 +1,33 @@
+<app-game-container title="⌨️ Typ Laser">
+  <div class="game">
+    <div class="hud">
+      <div>Score: {{ score() }}</div>
+
+      <div>Snelheid: {{ speed() }}</div>
+    </div>
+
+    <div class="playfield">
+      <div class="laser"></div>
+
+      @for (w of words(); track w) {
+        <div class="word" [style.left.px]="w.x">
+          @for (letter of w.text.split(''); track $index) {
+            <span [class.correct]="$index < typed().length">
+              {{ letter }}
+            </span>
+          }
+        </div>
+      }
+    </div>
+
+    @if (gameOver()) {
+      <div class="gameover">
+        <h2>Game Over</h2>
+
+        <p>Score: {{ score() }}</p>
+
+        <button (click)="restart()">Opnieuw</button>
+      </div>
+    }
+  </div>
+</app-game-container>

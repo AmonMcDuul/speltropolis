@@ -1,0 +1,87 @@
+<app-game-container title="🧮 Rekenen">
+  <div class="layout">
+    <div class="topbar">
+      <div class="score">⭐ {{ score() }}</div>
+
+      @if (streak() > 1) {
+        <div class="streak">🔥 {{ streak() }}</div>
+      }
+    </div>
+
+    <div class="settings">
+      <div class="operators">
+        @for (op of operatorList; track op) {
+          <button
+            class="toggle"
+            [class.active]="operators().includes(op)"
+            (click)="toggleOperator(op)"
+          >
+            {{ op }}
+          </button>
+        }
+      </div>
+
+      <div class="range">
+        <div class="range-control">
+          <span>Min</span>
+
+          <button (click)="decMin()">−</button>
+
+          <div class="value">{{ min() }}</div>
+
+          <button (click)="incMin()">+</button>
+        </div>
+
+        <div class="range-control">
+          <span>Max</span>
+
+          <button (click)="decMax()">−</button>
+
+          <div class="value">{{ max() }}</div>
+
+          <button (click)="incMax()">+</button>
+        </div>
+      </div>
+
+      <div class="tables">
+        <span>Tafel:</span>
+
+        @for (n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track n) {
+          <button class="table" [class.active]="table() === n" (click)="setTable(n)">
+            {{ n }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="problem">{{ currentQuestion() }} =</div>
+
+    <div class="answer-box">
+      {{ answer() || '?' }}
+    </div>
+
+    <div class="keypad">
+      @for (n of keypad; track n) {
+        <button (click)="input(n)" (mousedown)="$event.preventDefault()">
+          {{ n }}
+        </button>
+      }
+
+      <button class="delete" (click)="backspace()">⌫</button>
+    </div>
+
+    <div class="actions">
+      <button class="skip" (click)="skip()">⏭ Overslaan</button>
+      <button class="submit" (click)="submit()">✔ Antwoord</button>
+    </div>
+    <div class="feedback">
+      @if (result() !== null) {
+        @if (isCorrect()) {
+          🎉 Goed!
+        } @else {
+          ❌ Fout
+        }
+      }
+    </div>
+  </div>
+</app-game-container>

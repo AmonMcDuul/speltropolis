@@ -1,0 +1,67 @@
+.game {
+  text-align: center;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.playfield {
+  position: relative;
+  width: 700px;
+  height: 160px;
+  margin: auto;
+  border: 3px solid #333;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.laser {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: red;
+  box-shadow:
+    0 0 10px red,
+    0 0 20px red,
+    0 0 30px red;
+}
+
+.word {
+  position: absolute;
+  top: 60px;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  font-family: monospace;
+}
+
+.word span {
+  color: #333;
+}
+
+.word span.correct {
+  color: #00a000;
+}
+
+.gameover {
+  margin-top: 20px;
+}
+
+.gameover button {
+  padding: 10px 18px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  background: #ff8787;
+  color: white;
+  cursor: pointer;
+}

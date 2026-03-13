@@ -1,0 +1,98 @@
+.game {
+  text-align: center;
+  padding: 10px;
+}
+
+.clock-wrapper {
+  margin: 25px auto;
+}
+
+.clock {
+  width: 260px;
+  height: 260px;
+  display: block;
+  margin: auto;
+}
+
+.clock-face {
+  fill: #fff;
+  stroke: #333;
+  stroke-width: 4;
+}
+
+.tick {
+  stroke: #666;
+  stroke-width: 2;
+}
+
+.number {
+  font-size: 14px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.hour {
+  stroke: #333;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: transform 0.5s ease;
+}
+
+.minute {
+  stroke: #ff4d6d;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: transform 0.5s ease;
+}
+
+.center {
+  fill: #333;
+}
+
+.digital {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: bold;
+  background: #f2f2f2;
+  padding: 6px 14px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.answers {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 160px);
+  gap: 14px;
+  justify-content: center;
+}
+
+.answers button {
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background: #ff8787;
+  color: white;
+  cursor: pointer;
+}
+
+.answers button:hover {
+  filter: brightness(1.1);
+}
+
+.difficulty {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.difficulty button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+}

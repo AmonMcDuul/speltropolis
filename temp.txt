@@ -1,0 +1,216 @@
+Project: Spellen-Paradijs
+
+Angular application for a child-friendly games website where children can play many browser games without ads, accounts, or monetization.
+
+The focus is simplicity, fun, and educational games in a safe environment.
+
+------------------------------------------------
+
+Angular style
+
+The project uses modern Angular patterns:
+
+- Standalone components
+- Signals for state management
+- inject() for dependency injection
+- Angular control flow syntax (@for, @if)
+- Lazy-loaded game routes
+
+No NgModules are used.
+
+------------------------------------------------
+
+Project structure
+
+/core
+  global infrastructure
+  global services
+  header
+  footer
+
+/features
+  application features
+
+/features/dashboard
+  the main game selection screen
+
+/features/games
+  each game lives in its own folder
+
+/features/games/memory
+/features/games/space-invaders
+/features/games/arkanoid
+
+/shared
+  reusable UI elements and utilities
+
+/shared/components
+  game-container
+
+/shared/models
+  shared models (game.model.ts)
+
+/shared/utils
+  helper utilities
+
+------------------------------------------------
+
+Game registry
+
+All games are defined in:
+
+features/games/game.registry.ts
+
+This file contains metadata for each game:
+
+- id
+- title
+- icon
+- route
+
+Example:
+
+{
+  id: 'memory',
+  title: 'Memory',
+  icon: '🧠',
+  route: '/games/memory'
+}
+
+The dashboard reads this registry and renders the game selection UI.
+
+------------------------------------------------
+
+Dashboard
+
+The dashboard displays the available games using a grid layout.
+
+Each game is rendered directly in the dashboard template
+(no separate GameCard component).
+
+The cards are large, colorful, and touch-friendly for children.
+
+------------------------------------------------
+
+Game container
+
+All games are wrapped in GameContainer.
+
+GameContainer is intentionally minimal and acts only as a layout wrapper.
+
+Responsibilities:
+
+- consistent page layout
+- optional title
+- back button to dashboard
+- shared spacing/styling for games
+
+It does NOT control:
+
+- game difficulty
+- scoring
+- timers
+- levels
+
+Each game manages its own UI and mechanics.
+
+------------------------------------------------
+
+Game structure
+
+Each game is implemented as a standalone Angular component.
+
+Example:
+
+features/games/memory/memory.component.ts
+
+A game typically contains:
+
+- its own state (signals)
+- game logic
+- its own UI controls (difficulty, restart, etc.)
+
+Games are independent from each other.
+
+------------------------------------------------
+
+Game engine (optional)
+
+Some arcade-style games may use a shared GameEngine service.
+
+Possible responsibilities:
+
+- score
+- timer
+- level
+- reset
+
+However this service is optional.
+
+Games that do not need it simply do not use it.
+
+If used, the service should be provided at the component level:
+
+providers: [GameEngine]
+
+so each game receives its own instance.
+
+------------------------------------------------
+
+Routing
+
+Games are lazy-loaded using Angular loadComponent.
+
+Example route:
+
+{
+  path: 'games/memory',
+  loadComponent: () =>
+    import('./features/games/memory/memory.component')
+      .then(m => m.MemoryComponent)
+}
+
+This keeps the bundle small even when many games are added.
+
+------------------------------------------------
+
+Responsive design
+
+The UI is designed primarily for children and tablets.
+
+Key principles:
+
+- large touch targets
+- colorful UI
+- playful animations
+- grid-based game selection
+- minimal text requirements
+
+The dashboard layout scales automatically using CSS grid.
+
+------------------------------------------------
+
+Design goals
+
+The site should feel playful and inviting:
+
+- colorful gradients
+- depth and shadows
+- animated UI elements
+- large icons
+- minimal complexity
+
+Navigation should be simple enough for young children.
+
+------------------------------------------------
+
+Adding a new game
+
+To add a new game:
+
+1. Create a new folder under features/games
+2. Add a standalone component
+3. Register the game in game.registry.ts
+4. Add a lazy route if needed
+
+The dashboard will automatically display it.

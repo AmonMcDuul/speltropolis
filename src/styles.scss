@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Nunito', system-ui, sans-serif;
+  background: linear-gradient(135deg, #6ecbff, #9ae6b4, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+.title-particle {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: titleParticle 0.6s ease forwards;
+  font-size: 14px;
+}
+
+@keyframes titleParticle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.4);
+  }
+}
+
+/* confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confettiBurst 1.2s ease-out forwards;
+}
+
+@keyframes confettiBurst {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--x), var(--y)) rotate(720deg);
+    opacity: 0;
+  }
+}

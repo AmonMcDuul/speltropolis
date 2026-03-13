@@ -1,0 +1,35 @@
+<app-mouse-trail></app-mouse-trail>
+
+<h1 class="title" playfulTitle>
+  <span class="letter">K</span>
+  <span class="letter">i</span>
+  <span class="letter">e</span>
+  <span class="letter">s</span>
+
+  <span class="space"></span>
+
+  <span class="letter">e</span>
+  <span class="letter">e</span>
+  <span class="letter">n</span>
+
+  <span class="space"></span>
+
+  <span class="letter">s</span>
+  <span class="letter">p</span>
+  <span class="letter">e</span>
+  <span class="letter">l</span>
+</h1>
+
+<div class="games-grid">
+  @for (game of games(); track game.id) {
+    <button class="game-card" (click)="openGame(game.route)">
+      <div class="shine"></div>
+      <div class="icon">
+        {{ game.icon }}
+      </div>
+      <div class="name">
+        {{ game.title }}
+      </div>
+    </button>
+  }
+</div>
