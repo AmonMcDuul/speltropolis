@@ -35,5 +35,11 @@
     "title": "Vind de afwijkende",
     "icon": "🔎",
     "route": "/games/find"
+  },
+  {
+    "id": "2048",
+    "title": "2048",
+    "icon": "🔢",
+    "route": "/games/2048"
   }
 ]

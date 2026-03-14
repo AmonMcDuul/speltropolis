@@ -40,4 +40,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/games/find/find.component').then((m) => m.FindComponent),
   },
+  {
+    path: 'games/2048',
+    loadComponent: () =>
+      import('./features/games/twenty-forty-eight/twenty-forty-eight.component').then(
+        (m) => m.TwentyFortyEightComponent,
+      ),
+  },
 ];
